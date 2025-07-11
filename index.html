@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrueStars Dept.</title>
+  <title>TrueStars</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="logo-truestars.png" alt="TrueStars Logo" />
+      <img src="nuevo-logo.png" alt="TrueStars Logo" />
     </div>
     <div class="nav-buttons">
-      <select id="languageSelect" onchange="cambiarIdioma(this.value)">
+      <select id="language-select" onchange="cambiarIdioma()">
         <option value="es">Español</option>
         <option value="en">English</option>
       </select>
@@ -21,53 +21,25 @@
   </header>
 
   <div class="hero">
-    <img src="dibujo web.png" alt="Fondo ilustración" />
-    <p id="slogan">
-      Los mejores productos al mejor precio.<br>Encuentra lo que buscas con confianza y calidad.
-    </p>
+    <div class="overlay">
+      <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
+    </div>
   </div>
 
   <div class="categorias">
-    <a href="#ropa" id="cat-ropa">Ropa</a>
-    <a href="#zapatillas" id="cat-zapatillas">Zapatillas</a>
-    <a href="#accesorios" id="cat-accesorios">Accesorios</a>
-    <a href="#otros" id="cat-otros">Otros</a>
+    <a href="ropa.html" class="cat" data-es="Ropa" data-en="Clothing">Ropa</a>
+    <a href="zapatillas.html" class="cat" data-es="Zapatillas" data-en="Sneakers">Zapatillas</a>
+    <a href="accesorios.html" class="cat" data-es="Accesorios" data-en="Accessories">Accesorios</a>
+    <a href="otros.html" class="cat" data-es="Otros" data-en="Others">Otros</a>
   </div>
 
-  <div class="seccion" id="ropa">Ropa</div>
-  <div class="seccion" id="zapatillas">Zapatillas</div>
-  <div class="seccion" id="accesorios">Accesorios</div>
-  <div class="seccion" id="otros">Otros</div>
-
   <footer>
-    © 2025 TrueStars. Todos los derechos reservados.
+    © 2025 TrueStars. Todos los derechos reservados
   </footer>
 
   <script>
-    function cambiarIdioma(idioma) {
-      const slogan = document.getElementById('slogan');
-      const catRopa = document.getElementById('cat-ropa');
-      const catZapatillas = document.getElementById('cat-zapatillas');
-      const catAccesorios = document.getElementById('cat-accesorios');
-      const catOtros = document.getElementById('cat-otros');
-      const footer = document.querySelector('footer');
-
-      if (idioma === 'en') {
-        slogan.innerHTML = 'The best products at the best price.<br>Find what you are looking for with trust and quality.';
-        catRopa.innerText = 'Clothing';
-        catZapatillas.innerText = 'Sneakers';
-        catAccesorios.innerText = 'Accessories';
-        catOtros.innerText = 'Others';
-        footer.innerText = '© 2025 TrueStars. All rights reserved.';
-      } else {
-        slogan.innerHTML = 'Los mejores productos al mejor precio.<br>Encuentra lo que buscas con confianza y calidad.';
-        catRopa.innerText = 'Ropa';
-        catZapatillas.innerText = 'Zapatillas';
-        catAccesorios.innerText = 'Accesorios';
-        catOtros.innerText = 'Otros';
-        footer.innerText = '© 2025 TrueStars. Todos los derechos reservados.';
-      }
-    }
-  </script>
-</body>
-</html>
+    function cambiarIdioma() {
+      const idioma = document.getElementById("language-select").value;
+      const slogan = document.getElementById("slogan");
+      if (idioma === "en") {
+        slogan.innerHTML = "The best products at the best price<br>Find what you are looking for with trust and
