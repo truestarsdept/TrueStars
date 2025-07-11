@@ -2,12 +2,12 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-/* Cabecera superior */
+/* Cabecera */
 header {
   background-color: #1a1a1a;
   color: white;
@@ -16,93 +16,71 @@ header {
   align-items: center;
   padding: 20px;
 }
-
 .logo img {
   height: 60px;
-  width: 220px;
-  object-fit: cover;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
 }
-
 .nav-buttons {
   display: flex;
-  align-items: center;
   gap: 10px;
 }
-
-.nav-buttons select,
-.nav-buttons button {
+.nav-buttons button,
+.nav-buttons select {
   padding: 8px 12px;
   border: none;
   background-color: #333;
   color: white;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Hero */
+/* Hero section */
 .hero {
-  background-color: #d0d0d0;
-  text-align: center;
-  padding: 60px 20px;
+  background-image: url("dibujo web.png");
+  background-size: cover;
+  background-position: center;
   position: relative;
-  z-index: 1;
-  overflow: hidden;
+  height: 300px;
 }
-
-.hero img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  max-width: 600px;
-  opacity: 0.15;
-  transform: translate(-50%, -50%);
-  z-index: 0;
+.hero .overlay {
+  background-color: rgba(230, 230, 230, 0.8);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .hero p {
-  position: relative;
-  z-index: 1;
   font-style: italic;
-  font-size: 1.4rem;
-  margin-top: 20px;
+  font-size: 1.5rem;
+  text-align: center;
   color: #000;
+  padding: 0 20px;
 }
 
 /* Categorías */
 .categorias {
-  background-color: #bfbfbf;
+  background-color: #ccc;
   display: flex;
   justify-content: center;
   gap: 20px;
   padding: 20px;
 }
-
 .categorias a {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  background-color: #e0e0e0;
-  padding: 12px 18px;
+  background-color: #ddd;
+  padding: 10px 15px;
   border-radius: 5px;
 }
 
-/* Secciones */
-.seccion {
-  background-color: #f5f5f5;
-  min-height: 300px;
-  padding: 30px;
-  font-size: 2rem;
-  text-align: center;
-  flex: 1;
-}
-
-/* Pie de página */
+/* Footer */
 footer {
   background-color: #000;
   color: white;
   text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
+  padding: 10px;
   margin-top: auto;
 }
