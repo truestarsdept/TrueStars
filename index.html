@@ -135,4 +135,66 @@
 
   <div class="hero">
     <div class="hero-content">
-      <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que bu
+      <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
+    </div>
+  </div>
+
+  <div class="categorias">
+    <a href="#ropa" id="link-ropa">Ropa</a>
+    <a href="#zapatillas" id="link-zapatillas">Zapatillas</a>
+    <a href="#accesorios" id="link-accesorios">Accesorios</a>
+    <a href="#otros" id="link-otros">Otros</a>
+  </div>
+
+  <div class="seccion" id="ropa">Ropa</div>
+  <div class="seccion" id="zapatillas">Zapatillas</div>
+  <div class="seccion" id="accesorios">Accesorios</div>
+  <div class="seccion" id="otros">Otros</div>
+
+  <footer>
+    © 2025 TrueStars. Todos los derechos reservados
+  </footer>
+
+  <script>
+    let idioma = 'es';
+
+    function toggleLanguage() {
+      const slogan = document.getElementById('slogan');
+      const links = {
+        ropa: document.getElementById('link-ropa'),
+        zapatillas: document.getElementById('link-zapatillas'),
+        accesorios: document.getElementById('link-accesorios'),
+        otros: document.getElementById('link-otros'),
+        secRopa: document.getElementById('ropa'),
+        secZapatillas: document.getElementById('zapatillas'),
+        secAccesorios: document.getElementById('accesorios'),
+        secOtros: document.getElementById('otros')
+      };
+
+      if (idioma === 'es') {
+        slogan.innerHTML = 'The best products at the best price<br>Find what you are looking for with trust and quality.';
+        links.ropa.innerText = 'Clothing';
+        links.zapatillas.innerText = 'Sneakers';
+        links.accesorios.innerText = 'Accessories';
+        links.otros.innerText = 'Others';
+        links.secRopa.innerText = 'Clothing';
+        links.secZapatillas.innerText = 'Sneakers';
+        links.secAccesorios.innerText = 'Accessories';
+        links.secOtros.innerText = 'Others';
+        idioma = 'en';
+      } else {
+        slogan.innerHTML = 'Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.';
+        links.ropa.innerText = 'Ropa';
+        links.zapatillas.innerText = 'Zapatillas';
+        links.accesorios.innerText = 'Accesorios';
+        links.otros.innerText = 'Otros';
+        links.secRopa.innerText = 'Ropa';
+        links.secZapatillas.innerText = 'Zapatillas';
+        links.secAccesorios.innerText = 'Accesorios';
+        links.secOtros.innerText = 'Otros';
+        idioma = 'es';
+      }
+    }
+  </script>
+</body>
+</html>
