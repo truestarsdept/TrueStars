@@ -3,40 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TrueStars - Reventa de productos confiables y de alta calidad." />
-  <title>TrueStars - Reventa de Productos</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>TrueStars Dept.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    /* Cabecera superior */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .nav-buttons button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Franja con imagen grande y texto */
+    .hero {
+      background-color: #e6e6e6;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .hero img {
+      width: 100px;
+    }
+    .hero p {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+
+    /* Enlaces por categorías */
+    .categorias {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .categorias a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      background-color: #eaeaea;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    /* Secciones vacías */
+    .seccion {
+      background-color: #f5f5f5;
+      min-height: 300px;
+      padding: 30px;
+      font-family: 'Matura MT Script Capitals', cursive;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    /* Pie de página */
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>TrueStars</h1>
-    <p>Reventa confiable de productos top</p>
+    <div class="logo">
+      <img src="logo.png" alt="TrueStars Logo" />
+    </div>
+    <div class="nav-buttons">
+      <button onclick="toggleLanguage()">Idioma/Language</button>
+      <button onclick="alert('Función de iniciar sesión próximamente')">Iniciar Sesión</button>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Los mejores productos al mejor precio</h2>
-    <p>Encuentra lo que buscas con confianza y calidad.</p>
-    <a href="#productos" class="btn">Ver productos</a>
-  </section>
+  <div class="hero">
+    <img src="dibujo web.png" alt="Icono compra" />
+    <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
+  </div>
 
-  <section id="productos" class="productos">
-    <h2>Nuestros productos</h2>
-    <div class="producto">
-      <img src="https://via.placeholder.com/200" alt="Producto 1">
-      <h3>Producto 1</h3>
-      <p>Descripción breve del producto 1</p>
-      <span>$19.99</span>
-    </div>
-    <div class="producto">
-      <img src="https://via.placeholder.com/200" alt="Producto 2">
-      <h3>Producto 2</h3>
-      <p>Descripción breve del producto 2</p>
-      <span>$29.99</span>
-    </div>
-  </section>
+  <div class="categorias">
+    <a href="#ropa">Ropa</a>
+    <a href="#zapatillas">Zapatillas</a>
+    <a href="#accesorios">Accesorios</a>
+    <a href="#otros">Otros</a>
+  </div>
+
+  <div class="seccion" id="ropa">Ropa</div>
+  <div class="seccion" id="zapatillas">Zapatillas</div>
+  <div class="seccion" id="accesorios">Accesorios</div>
+  <div class="seccion" id="otros">Otros</div>
 
   <footer>
-    <p>&copy; 2025 TrueStars. Todos los derechos reservados.</p>
+    © 2025 TrueStars. Todos los derechos reservados
   </footer>
+
+  <script>
+    let idioma = 'es';
+    function toggleLanguage() {
+      const texto = document.getElementById('slogan');
+      if (idioma === 'es') {
+        texto.innerHTML = 'The best products at the best price<br>Find what you are looking for with trust and quality.';
+        idioma = 'en';
+      } else {
+        texto.innerHTML = 'Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.';
+        idioma = 'es';
+      }
+    }
+  </script>
 </body>
 </html>
