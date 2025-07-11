@@ -1,166 +1,178 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TrueStars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrueStars Dept.</title>
   <style>
-    :root {
-      --color-primario: #1a1a1a;
-      --color-secundario: #f0f0f0;
-      --color-texto: #fff;
-      --color-enlaces: #e0e0e0;
-      --fuente-principal: 'Arial', sans-serif;
-    }
-
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: var(--fuente-principal);
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
+    /* Cabecera superior */
     header {
-      background-color: var(--color-primario);
-      color: var(--color-texto);
+      background-color: #1a1a1a;
+      color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 20px 30px;
     }
-
-    header img {
-      height: 50px;
+    .logo img {
+      height: 70px;
     }
-
-    .nav-right {
+    .nav-buttons {
       display: flex;
-      gap: 15px;
-      align-items: center;
+      gap: 10px;
     }
-
-    .nav-right select,
-    .nav-right button {
-      background-color: var(--color-texto);
-      color: var(--color-primario);
+    .nav-buttons button {
+      padding: 10px 16px;
       border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
+      background-color: #333;
+      color: white;
       cursor: pointer;
+      border-radius: 5px;
     }
 
+    /* Franja con imagen grande y texto */
     .hero {
-      background-color: var(--color-secundario);
+      background-color: #bfbfbf;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
     }
-
     .hero img {
-      width: 100px;
-      margin-bottom: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      height: auto;
+      opacity: 0.15;
     }
-
     .hero p {
+      position: relative;
       font-style: italic;
-      font-size: 1.2rem;
-      color: var(--color-primario);
+      font-size: 1.6rem;
+      z-index: 1;
+      color: #000;
     }
 
-    .links {
-      background-color: #f8f8f8;
+    /* Enlaces por categorías */
+    .categorias {
+      background-color: #d6d6d6;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       padding: 20px;
     }
-
-    .links a {
-      color: var(--color-primario);
+    .categorias a {
       text-decoration: none;
+      color: black;
       font-weight: bold;
-      font-size: 1rem;
+      background-color: #c0c0c0;
+      padding: 10px 15px;
+      border-radius: 5px;
     }
 
-    .seccion-producto {
+    /* Secciones vacías */
+    .seccion {
+      background-color: #f5f5f5;
       min-height: 300px;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Matura MT Script Capitals', cursive;
+      padding: 30px;
       font-size: 2rem;
+      text-align: center;
+      font-family: 'Matura MT Script Capitals', cursive;
     }
 
+    /* Pie de página */
     footer {
-      background-color: var(--color-primario);
-      color: var(--color-texto);
+      background-color: #000;
+      color: white;
       text-align: center;
       padding: 10px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      margin-top: auto;
+      font-family: Arial, sans-serif;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="TrueStars Logo" />
-    <div class="nav-right">
-      <select id="languageSelect">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-      </select>
-      <button onclick="alert('Iniciar sesión no está disponible aún')">Iniciar sesión</button>
+    <div class="logo">
+      <img src="logo.png" alt="TrueStars Logo" />
+    </div>
+    <div class="nav-buttons">
+      <button onclick="toggleLanguage()">Idioma/Language</button>
+      <button onclick="alert('Función de iniciar sesión próximamente')">Iniciar Sesión</button>
     </div>
   </header>
 
-  <section class="hero">
-    <img src="dibujo web.png" alt="Icono promoción" />
-    <p id="hero-text">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
-  </section>
+  <div class="hero">
+    <img src="dibujo web.png" alt="Icono compra" />
+    <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
+  </div>
 
-  <nav class="links">
-    <a href="ropa.html" id="ropa">Ropa</a>
-    <a href="zapatillas.html" id="zapatillas">Zapatillas</a>
-    <a href="accesorios.html" id="accesorios">Accesorios</a>
-    <a href="otros.html" id="otros">Otros</a>
-  </nav>
+  <div class="categorias">
+    <a href="#ropa" id="linkRopa">Ropa</a>
+    <a href="#zapatillas" id="linkZapatillas">Zapatillas</a>
+    <a href="#accesorios" id="linkAccesorios">Accesorios</a>
+    <a href="#otros" id="linkOtros">Otros</a>
+  </div>
+
+  <div class="seccion" id="ropa">Ropa</div>
+  <div class="seccion" id="zapatillas">Zapatillas</div>
+  <div class="seccion" id="accesorios">Accesorios</div>
+  <div class="seccion" id="otros">Otros</div>
 
   <footer>
     © 2025 TrueStars. Todos los derechos reservados
   </footer>
 
   <script>
-    const translations = {
-      es: {
-        hero: "Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.",
-        ropa: "Ropa",
-        zapatillas: "Zapatillas",
-        accesorios: "Accesorios",
-        otros: "Otros",
-        login: "Iniciar sesión"
-      },
-      en: {
-        hero: "The best products at the best price<br>Find what you need with confidence and quality.",
-        ropa: "Clothing",
-        zapatillas: "Sneakers",
-        accesorios: "Accessories",
-        otros: "Others",
-        login: "Sign in"
-      }
-    };
+    let idioma = 'es';
+    function toggleLanguage() {
+      const texto = document.getElementById('slogan');
+      const linkRopa = document.getElementById('linkRopa');
+      const linkZapatillas = document.getElementById('linkZapatillas');
+      const linkAccesorios = document.getElementById('linkAccesorios');
+      const linkOtros = document.getElementById('linkOtros');
+      const secciones = {
+        ropa: document.getElementById('ropa'),
+        zapatillas: document.getElementById('zapatillas'),
+        accesorios: document.getElementById('accesorios'),
+        otros: document.getElementById('otros')
+      };
 
-    const langSelect = document.getElementById('languageSelect');
-    langSelect.addEventListener('change', (e) => {
-      const lang = e.target.value;
-      document.getElementById('hero-text').innerHTML = translations[lang].hero;
-      document.getElementById('ropa').textContent = translations[lang].ropa;
-      document.getElementById('zapatillas').textContent = translations[lang].zapatillas;
-      document.getElementById('accesorios').textContent = translations[lang].accesorios;
-      document.getElementById('otros').textContent = translations[lang].otros;
-      document.querySelector('button').textContent = translations[lang].login;
-    });
+      if (idioma === 'es') {
+        texto.innerHTML = 'The best products at the best price<br>Find what you are looking for with trust and quality.';
+        linkRopa.textContent = 'Clothing';
+        linkZapatillas.textContent = 'Sneakers';
+        linkAccesorios.textContent = 'Accessories';
+        linkOtros.textContent = 'Others';
+        secciones.ropa.textContent = 'Clothing';
+        secciones.zapatillas.textContent = 'Sneakers';
+        secciones.accesorios.textContent = 'Accessories';
+        secciones.otros.textContent = 'Others';
+        idioma = 'en';
+      } else {
+        texto.innerHTML = 'Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.';
+        linkRopa.textContent = 'Ropa';
+        linkZapatillas.textContent = 'Zapatillas';
+        linkAccesorios.textContent = 'Accesorios';
+        linkOtros.textContent = 'Otros';
+        secciones.ropa.textContent = 'Ropa';
+        secciones.zapatillas.textContent = 'Zapatillas';
+        secciones.accesorios.textContent = 'Accesorios';
+        secciones.otros.textContent = 'Otros';
+        idioma = 'es';
+      }
+    }
   </script>
 </body>
 </html>
