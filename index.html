@@ -4,146 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrueStars Dept.</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background-color: #1e1e1e;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 30px;
-    }
-
-    .logo img {
-      height: 70px;
-    }
-
-    .nav-buttons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .nav-buttons button {
-      padding: 10px 15px;
-      border: none;
-      background-color: #333;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .hero {
-      background-color: #b0b0b0;
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
-      color: white;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      background-image: url("dibujo web.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-content p {
-      font-size: 1.5rem;
-      font-style: italic;
-    }
-
-    .categorias {
-      background-color: #d0d0d0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 25px;
-      flex-wrap: wrap;
-    }
-
-    .categorias a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      background-color: #e0e0e0;
-      padding: 12px 20px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .categorias a:hover {
-      background-color: #ccc;
-    }
-
-    .seccion {
-      background-color: #f5f5f5;
-      min-height: 300px;
-      padding: 40px;
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    footer {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: auto;
-      font-family: Arial, sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="logo.png" alt="TrueStars Logo" />
+      <img src="logo-truestars.png" alt="TrueStars Logo" />
     </div>
     <div class="nav-buttons">
-      <button onclick="toggleLanguage()">Idioma / Language</button>
+      <select id="languageSelect" onchange="cambiarIdioma(this.value)">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
       <button onclick="alert('Función de iniciar sesión próximamente')">Iniciar Sesión</button>
     </div>
   </header>
 
   <div class="hero">
-    <div class="hero-content">
-      <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
-    </div>
+    <img src="dibujo web.png" alt="Fondo ilustración" />
+    <p id="slogan">
+      Los mejores productos al mejor precio.<br>Encuentra lo que buscas con confianza y calidad.
+    </p>
   </div>
 
   <div class="categorias">
-    <a href="#ropa" id="link-ropa">Ropa</a>
-    <a href="#zapatillas" id="link-zapatillas">Zapatillas</a>
-    <a href="#accesorios" id="link-accesorios">Accesorios</a>
-    <a href="#otros" id="link-otros">Otros</a>
+    <a href="#ropa" id="cat-ropa">Ropa</a>
+    <a href="#zapatillas" id="cat-zapatillas">Zapatillas</a>
+    <a href="#accesorios" id="cat-accesorios">Accesorios</a>
+    <a href="#otros" id="cat-otros">Otros</a>
   </div>
 
   <div class="seccion" id="ropa">Ropa</div>
@@ -152,47 +40,32 @@
   <div class="seccion" id="otros">Otros</div>
 
   <footer>
-    © 2025 TrueStars. Todos los derechos reservados
+    © 2025 TrueStars. Todos los derechos reservados.
   </footer>
 
   <script>
-    let idioma = 'es';
-
-    function toggleLanguage() {
+    function cambiarIdioma(idioma) {
       const slogan = document.getElementById('slogan');
-      const links = {
-        ropa: document.getElementById('link-ropa'),
-        zapatillas: document.getElementById('link-zapatillas'),
-        accesorios: document.getElementById('link-accesorios'),
-        otros: document.getElementById('link-otros'),
-        secRopa: document.getElementById('ropa'),
-        secZapatillas: document.getElementById('zapatillas'),
-        secAccesorios: document.getElementById('accesorios'),
-        secOtros: document.getElementById('otros')
-      };
+      const catRopa = document.getElementById('cat-ropa');
+      const catZapatillas = document.getElementById('cat-zapatillas');
+      const catAccesorios = document.getElementById('cat-accesorios');
+      const catOtros = document.getElementById('cat-otros');
+      const footer = document.querySelector('footer');
 
-      if (idioma === 'es') {
-        slogan.innerHTML = 'The best products at the best price<br>Find what you are looking for with trust and quality.';
-        links.ropa.innerText = 'Clothing';
-        links.zapatillas.innerText = 'Sneakers';
-        links.accesorios.innerText = 'Accessories';
-        links.otros.innerText = 'Others';
-        links.secRopa.innerText = 'Clothing';
-        links.secZapatillas.innerText = 'Sneakers';
-        links.secAccesorios.innerText = 'Accessories';
-        links.secOtros.innerText = 'Others';
-        idioma = 'en';
+      if (idioma === 'en') {
+        slogan.innerHTML = 'The best products at the best price.<br>Find what you are looking for with trust and quality.';
+        catRopa.innerText = 'Clothing';
+        catZapatillas.innerText = 'Sneakers';
+        catAccesorios.innerText = 'Accessories';
+        catOtros.innerText = 'Others';
+        footer.innerText = '© 2025 TrueStars. All rights reserved.';
       } else {
-        slogan.innerHTML = 'Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.';
-        links.ropa.innerText = 'Ropa';
-        links.zapatillas.innerText = 'Zapatillas';
-        links.accesorios.innerText = 'Accesorios';
-        links.otros.innerText = 'Otros';
-        links.secRopa.innerText = 'Ropa';
-        links.secZapatillas.innerText = 'Zapatillas';
-        links.secAccesorios.innerText = 'Accesorios';
-        links.secOtros.innerText = 'Otros';
-        idioma = 'es';
+        slogan.innerHTML = 'Los mejores productos al mejor precio.<br>Encuentra lo que buscas con confianza y calidad.';
+        catRopa.innerText = 'Ropa';
+        catZapatillas.innerText = 'Zapatillas';
+        catAccesorios.innerText = 'Accesorios';
+        catOtros.innerText = 'Otros';
+        footer.innerText = '© 2025 TrueStars. Todos los derechos reservados.';
       }
     }
   </script>
