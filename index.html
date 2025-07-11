@@ -42,4 +42,15 @@
       const idioma = document.getElementById("language-select").value;
       const slogan = document.getElementById("slogan");
       if (idioma === "en") {
-        slogan.innerHTML = "The best products at the best price<br>Find what you are looking for with trust and
+        slogan.innerHTML = "The best products at the best price<br>Find what you are looking for with trust and quality.";
+      } else {
+        slogan.innerHTML = "Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.";
+      }
+
+      document.querySelectorAll('.cat').forEach(el => {
+        el.textContent = el.dataset[idioma];
+      });
+    }
+  </script>
+</body>
+</html>
