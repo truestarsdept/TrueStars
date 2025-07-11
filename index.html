@@ -1,86 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrueStars Dept.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrueStars</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+    :root {
+      --color-primario: #1a1a1a;
+      --color-secundario: #f0f0f0;
+      --color-texto: #fff;
+      --color-enlaces: #e0e0e0;
+      --fuente-principal: 'Arial', sans-serif;
     }
-    /* Cabecera superior */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--fuente-principal);
+    }
+
     header {
-      background-color: #1a1a1a;
-      color: white;
+      background-color: var(--color-primario);
+      color: var(--color-texto);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
     }
-    .logo img {
+
+    header img {
       height: 50px;
     }
-    .nav-buttons {
+
+    .nav-right {
       display: flex;
-      gap: 10px;
-    }
-    .nav-buttons button {
-      padding: 8px 12px;
-      border: none;
-      background-color: #333;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
+      gap: 15px;
+      align-items: center;
     }
 
-    /* Franja con imagen grande y texto */
+    .nav-right select,
+    .nav-right button {
+      background-color: var(--color-texto);
+      color: var(--color-primario);
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     .hero {
-      background-color: #e6e6e6;
+      background-color: var(--color-secundario);
       text-align: center;
       padding: 40px 20px;
     }
+
     .hero img {
       width: 100px;
+      margin-bottom: 20px;
     }
+
     .hero p {
       font-style: italic;
       font-size: 1.2rem;
-      margin-top: 15px;
+      color: var(--color-primario);
     }
 
-    /* Enlaces por categorías */
-    .categorias {
+    .links {
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .links a {
+      color: var(--color-primario);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .seccion-producto {
+      min-height: 300px;
       background-color: #f0f0f0;
       display: flex;
       justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .categorias a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      background-color: #eaeaea;
-      padding: 10px 15px;
-      border-radius: 5px;
-    }
-
-    /* Secciones vacías */
-    .seccion {
-      background-color: #f5f5f5;
-      min-height: 300px;
-      padding: 30px;
+      align-items: center;
       font-family: 'Matura MT Script Capitals', cursive;
       font-size: 2rem;
-      text-align: center;
     }
 
-    /* Pie de página */
     footer {
-      background-color: #000;
-      color: white;
+      background-color: var(--color-primario);
+      color: var(--color-texto);
       text-align: center;
       padding: 10px;
       position: relative;
@@ -91,48 +105,62 @@
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="logo.png" alt="TrueStars Logo" />
-    </div>
-    <div class="nav-buttons">
-      <button onclick="toggleLanguage()">Idioma/Language</button>
-      <button onclick="alert('Función de iniciar sesión próximamente')">Iniciar Sesión</button>
+    <img src="logo.png" alt="TrueStars Logo" />
+    <div class="nav-right">
+      <select id="languageSelect">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+      <button onclick="alert('Iniciar sesión no está disponible aún')">Iniciar sesión</button>
     </div>
   </header>
 
-  <div class="hero">
-    <img src="dibujo web.png" alt="Icono compra" />
-    <p id="slogan">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
-  </div>
+  <section class="hero">
+    <img src="dibujo web.png" alt="Icono promoción" />
+    <p id="hero-text">Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.</p>
+  </section>
 
-  <div class="categorias">
-    <a href="#ropa">Ropa</a>
-    <a href="#zapatillas">Zapatillas</a>
-    <a href="#accesorios">Accesorios</a>
-    <a href="#otros">Otros</a>
-  </div>
-
-  <div class="seccion" id="ropa">Ropa</div>
-  <div class="seccion" id="zapatillas">Zapatillas</div>
-  <div class="seccion" id="accesorios">Accesorios</div>
-  <div class="seccion" id="otros">Otros</div>
+  <nav class="links">
+    <a href="ropa.html" id="ropa">Ropa</a>
+    <a href="zapatillas.html" id="zapatillas">Zapatillas</a>
+    <a href="accesorios.html" id="accesorios">Accesorios</a>
+    <a href="otros.html" id="otros">Otros</a>
+  </nav>
 
   <footer>
     © 2025 TrueStars. Todos los derechos reservados
   </footer>
 
   <script>
-    let idioma = 'es';
-    function toggleLanguage() {
-      const texto = document.getElementById('slogan');
-      if (idioma === 'es') {
-        texto.innerHTML = 'The best products at the best price<br>Find what you are looking for with trust and quality.';
-        idioma = 'en';
-      } else {
-        texto.innerHTML = 'Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.';
-        idioma = 'es';
+    const translations = {
+      es: {
+        hero: "Los mejores productos al mejor precio<br>Encuentra lo que buscas con confianza y calidad.",
+        ropa: "Ropa",
+        zapatillas: "Zapatillas",
+        accesorios: "Accesorios",
+        otros: "Otros",
+        login: "Iniciar sesión"
+      },
+      en: {
+        hero: "The best products at the best price<br>Find what you need with confidence and quality.",
+        ropa: "Clothing",
+        zapatillas: "Sneakers",
+        accesorios: "Accessories",
+        otros: "Others",
+        login: "Sign in"
       }
-    }
+    };
+
+    const langSelect = document.getElementById('languageSelect');
+    langSelect.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      document.getElementById('hero-text').innerHTML = translations[lang].hero;
+      document.getElementById('ropa').textContent = translations[lang].ropa;
+      document.getElementById('zapatillas').textContent = translations[lang].zapatillas;
+      document.getElementById('accesorios').textContent = translations[lang].accesorios;
+      document.getElementById('otros').textContent = translations[lang].otros;
+      document.querySelector('button').textContent = translations[lang].login;
+    });
   </script>
 </body>
 </html>
