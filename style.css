@@ -14,18 +14,21 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-}
-.logo img {
+  padding: 5px 20px;
   height: 60px;
-  width: auto;
-  max-width: 200px;
+}
+
+.logo img {
+  height: 55px;
+  width: 250px;
   object-fit: contain;
 }
+
 .nav-buttons {
   display: flex;
   gap: 10px;
 }
+
 .nav-buttons button,
 .nav-buttons select {
   padding: 8px 12px;
@@ -36,7 +39,7 @@ header {
   cursor: pointer;
 }
 
-/* Hero section */
+/* Hero con imagen */
 .hero {
   background-image: url("dibujo web.png");
   background-size: cover;
@@ -44,29 +47,32 @@ header {
   position: relative;
   height: 300px;
 }
+
 .hero .overlay {
-  background-color: rgba(230, 230, 230, 0.8);
+  background-color: rgba(80, 80, 80, 0.75);
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .hero p {
   font-style: italic;
   font-size: 1.5rem;
   text-align: center;
-  color: #000;
+  color: #fff;
   padding: 0 20px;
 }
 
 /* Categorías */
 .categorias {
-  background-color: #ccc;
+  background-color: #bbb;
   display: flex;
   justify-content: center;
   gap: 20px;
   padding: 20px;
 }
+
 .categorias a {
   text-decoration: none;
   color: black;
